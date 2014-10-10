@@ -37,7 +37,7 @@ def getMasterURI():
         line = line.strip()
         match = re_pattern.match(line)
         if match:
-            masterURI = match.group(0)
+            masterURI = match.group(1)
             break
     f.close()
     return masterURI
