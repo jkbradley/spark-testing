@@ -54,14 +54,14 @@ for maxDepth in maxDepths:
           + (" %s --testInput %s" % (trainFilePath, testFilePath)) \
           + (" --maxDepth %d --numTrees %d --fracTest %g" % (maxDepth, numTrees, fracTest)) \
           + (" &> %s" % outPath)
-        println("RUNNING: " + runString)
+        print "RUNNING: " + runString
         if not dryRun and os.system(runString) != 0:
-            println("FAILED TEST: " + runString)
+            print "FAILED TEST: " + runString
             try:
                 os.rename(outPath, outPath + ".FAILED")
-                println("RENAMED FAILED TEST LOG: " + outPath + ".FAILED")
+                print "RENAMED FAILED TEST LOG: " + outPath + ".FAILED"
             except:
-                println("COULD NOT RENAME FAILED TEST LOG: " + outPath)
+                print "COULD NOT RENAME FAILED TEST LOG: " + outPath
             if dieOnFailure:
                 raise Exception("Failed during test.")
 
